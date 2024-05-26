@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ChuyenXeManager">
+    <data>
+        <variable
+            name="ChuyenXeManagerViewModel"
+            type="com.example.myapplication.viewmodel.ChuyenXeManagerViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_above="@id/menuChuyenXeManager"
+            android:id="@+id/containerChuyenXeManager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:menu="@menu/menu_chuyen_xe_manager"
+            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/white"
+            android:background="@color/colorBgMenu"
+            android:id="@+id/menuChuyenXeManager"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</layout>

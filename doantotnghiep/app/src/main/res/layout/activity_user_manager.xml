@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:context=".view.UserManagerActivity">
+    <data>
+        <variable
+            name="UserManagerViewModel"
+            type="com.example.myapplication.viewmodel.UserManagerViewModel" />
+    </data>
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/fragmentAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/containerBtn"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/containerBtn"
+            android:background="@color/colorBgMenu"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/menu_user"
+            app:itemBackground="@color/colorBgMenu"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            />
+    </RelativeLayout>
+</layout>

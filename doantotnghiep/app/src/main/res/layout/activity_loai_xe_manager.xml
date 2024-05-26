@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ListThanhVienFragment">
+    <data>
+        <variable
+            name="LoaiXeManagerViewModel"
+            type="com.example.myapplication.viewmodel.LoaiXeManagerViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <!-- TODO: Update blank fragment layout -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/containerLoaiXeManager"
+            android:layout_above="@id/menuThanhVienManager"
+
+            />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:menu="@menu/menu_thanh_vien_manager"
+            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/white"
+            android:background="@color/colorBgMenu"
+            android:id="@+id/menuThanhVienManager"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</layout>

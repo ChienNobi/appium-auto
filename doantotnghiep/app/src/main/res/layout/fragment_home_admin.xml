@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.HomeAdminFragment">
+    <data>
+        <variable
+            name="HomeAdminViewModel"
+            type="com.example.myapplication.viewmodel.HomeAdminViewModel" />
+    </data>
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="50dp"
+            android:gravity="center_horizontal"
+            android:id="@+id/layoutContainerTop"
+            android:weightSum="2">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layoutManagerUser"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_10"
+                android:backgroundTint="@color/color_manager_user"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginHorizontal="12dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="Quản lý Thành Viên"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:textSize="12sp"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/car"
+                    android:layout_weight="2"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layoutManagerChuyenXe"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_10"
+                android:backgroundTint="@color/color_manager_chuyen_xe"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:weightSum="3"
+                android:layout_marginHorizontal="12dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Quản lý Chuyến Xe"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:textSize="12sp"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgQuanLiChuyenXe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/car1"
+                    android:layout_weight="2"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="24dp"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/layoutContainerTop"
+            android:id="@+id/layoutContainerBottom"
+            android:weightSum="2">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layoutManagerLoaiXe"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_10"
+                android:backgroundTint="@color/color_manager_loai_xe"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="Quản lý Loại Xe"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:textSize="12sp"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/car2"
+                    android:layout_weight="2"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layoutManagerVeDat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_10"
+                android:backgroundTint="@color/color_manager_ve_dat"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:weightSum="3"
+                android:layout_marginHorizontal="12dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Quản lý Vé Đặt"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:textSize="12sp"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/car3"
+                    android:layout_weight="2"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
+    <LinearLayout
+        android:paddingHorizontal="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tenChuyenXe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên chuyến xe"/>
+        <TextView
+            android:id="@+id/soLuongVe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/rcvChuyenXe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="300dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

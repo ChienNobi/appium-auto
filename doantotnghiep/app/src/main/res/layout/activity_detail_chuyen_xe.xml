@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.DetailChuyenXeActivity">
+
+    <data>
+        <variable
+            name="ADetailChuyenXeViewModel"
+            type="com.example.myapplication.viewmodel.ADetailChuyenXeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_above="@id/btnDatVe">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/containerInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/hinhAnhChuyenXe"
+                        android:scaleType="centerCrop"
+                        android:layout_width="match_parent"
+                        android:src="@drawable/avatar"
+                        android:layout_height="350dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginHorizontal="12dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@={ADetailChuyenXeViewModel.tenChuyenXe}"
+                            android:id="@+id/tenChuyenXe"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@={ADetailChuyenXeViewModel.diemDanhGia}"
+                                android:id="@+id/tvDanhgia"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/giaChuyenXe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={ADetailChuyenXeViewModel.giaChuyenXe}"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/diaDiemDi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={ADetailChuyenXeViewModel.diaDiemDi}"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/moTa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={ADetailChuyenXeViewModel.moTa}"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/choTrong"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={ADetailChuyenXeViewModel.choTrong}"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="6dp"
+                    android:background="#2F2F2F"
+                    android:layout_below="@id/containerInfo"
+                    android:id="@+id/divider"/>
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:id="@+id/layoutTatCaNhanXet"
+                    android:layout_below="@id/divider"
+                    android:orientation="vertical">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcvDanhGia"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layoutTatCaNhanXet"
+                    android:id="@+id/btnAddNhanXet"
+                    android:text="Thêm nhận xét"/>
+                <LinearLayout
+                    android:id="@+id/layoutNhanXet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btnAddNhanXet"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nhận xét: "
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/round_10"
+                        android:backgroundTint="#6500BCD4"
+                        android:hint="Nhập nhận xét của bạn"
+                        android:padding="13dp"
+                        android:text="@={ADetailChuyenXeViewModel.nhanXet}"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Đánh giá: "
+                        android:textColor="@color/black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RadioGroup
+                            android:id="@+id/danhgiaGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/danhgia1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="1"
+                                android:text="1: Rất tệ" />
+
+                            <RadioButton
+                                android:id="@+id/danhgia2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="2"
+                                android:text="2: Tệ" />
+
+                            <RadioButton
+                                android:id="@+id/danhgia3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="3"
+                                android:text="3: Bình Thường" />
+
+                            <RadioButton
+                                android:id="@+id/danhgia4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="4"
+                                android:text="4: Tốt" />
+
+                            <RadioButton
+                                android:id="@+id/danhgia5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="5"
+                                android:text="5: Rất tốt" />
+
+                        </RadioGroup>
+
+                        <Button
+                            android:id="@+id/btnGui"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gửi" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+
+
+
+        <Button
+
+            android:id="@+id/btnDatVe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đặt vé ngay"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/round_45"
+            android:backgroundTint="@color/color_btn_dat_ve"
+            android:paddingHorizontal="24dp"/>
+    </RelativeLayout>
+
+</layout>

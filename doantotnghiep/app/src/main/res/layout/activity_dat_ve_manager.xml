@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.DatVeManagerActivity">
+    <data>
+        <variable
+            name="DatVeManagerViewModel"
+            type="com.example.myapplication.viewmodel.DatVeManagerViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <FrameLayout
+            android:id="@+id/containerDatVe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tabAdmin"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/tabAdmin"
+            android:background="@color/colorBgMenu"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/menu_dat_ve"
+            app:itemBackground="@color/colorBgMenu"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</layout>
