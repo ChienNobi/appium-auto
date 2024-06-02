@@ -13,7 +13,6 @@ import static core.SystemDefault.SQL_INJECTION_RESULT_FILE;
 public class SQLInjectionTest extends BaseTest {
     public static ExcelWriter excelWriter;
 
-
     @BeforeClass
     public void setUp() throws IOException {
         excelWriter = new ExcelWriter(SQL_INJECTION_RESULT_FILE, "SQLInjectionTest");
@@ -24,18 +23,18 @@ public class SQLInjectionTest extends BaseTest {
         excelWriter.setCellValue(0, 0, "Test Case");
         excelWriter.setCellValue(0, 1, "Result");
 
-        String[] testCases = {"khachhang", "or true--", "or 1=1;", "or 1=1--", "admin' or '1'='1;", "like '%'"};
-        int curRow = 1;
-        for (String testCase : testCases) {
-            excelWriter.setCellValue(curRow, 0, testCase);
+        String[] words = {"khachhang", "or true--", "or 1=1;", "or 1=1--", "admin' or '1'='1;", "like '%'"};
+        int curRow = 0;
+        for (String word : words) {
+            excelWriter.setCellValue(curRow + 1, 0, word);
 
             try {
-                loginPage.login(testCase, "khachhang");
+                loginPage.login(word, "khachhang");
                 boolean isFrameLayoutPresent = isElementPresentByXPath("//android.widget.FrameLayout[@resource-id='android:id/content']");
-                if (testCase.equals("khachhang")) {
-                    excelWriter.setCellValue(curRow, 1, isFrameLayoutPresent ? "Pass" : "Fail");
+                if (word.equals("khachhang")) {
+                    excelWriter.setCellValue(curRow + 1, 1, isFrameLayoutPresent ? "Pass" : "Fail");
                 } else {
-                    excelWriter.setCellValue(curRow, 1, !isFrameLayoutPresent ? "Pass" : "Fail");
+                    excelWriter.setCellValue(curRow + 1, 1, !isFrameLayoutPresent ? "Pass" : "Fail");
                 }
             } catch (Exception e) {
                 e.getMessage();

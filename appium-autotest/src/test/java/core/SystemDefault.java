@@ -7,4 +7,5 @@ public class SystemDefault {
     public static final String TEST_DATA_FILE = RESOURCE_PATH + "data/TestData.xlsx";
     public static final String RESULT_FILE = RESOURCE_PATH + "data/TestResult.xlsx";
     public static final String SQL_INJECTION_RESULT_FILE = RESOURCE_PATH + "data/SQLInjection.xlsx";
+    public static final String XSS_RESULT_FILE = RESOURCE_PATH + "data/XSSSearch.xlsx";
 }
