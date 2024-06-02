@@ -31,6 +31,7 @@ public class LoginPage extends BasePage {
     }
 
     public void login(String username, String password) throws InterruptedException {
+        System.out.println("Login with info: " + username + "/" + password);
         loginButton.click();
         usernameField.sendKeys(username);
         passwordField.sendKeys(password);

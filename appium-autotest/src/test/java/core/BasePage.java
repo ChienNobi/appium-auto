@@ -14,12 +14,28 @@ public class BasePage {
     @FindBy(id = "action_filter")
     public WebElement searchMenuBtn;
 
+    @FindBy(id = "action_history")
+    public WebElement historyMenuBtn;
+
+    @FindBy(id = "action_account")
+    public WebElement accountMenuBtn;
+
+    @FindBy(id = "layoutManagerChuyenXe")
+    private WebElement layoutManagerBus;
+
+    @FindBy(id = "layoutManagerUser")
+    private WebElement layoutManagerUser;
+
+    @FindBy(xpath = "//android.widget.Button[@resource-id='android:id/button1']")
+    public WebElement popUpConfirmBtn;
+
     public BasePage() {
         this.driver = EmulatorConfig.getAndroidDriver();
     }
 
     public String getToastMessage() {
         try {
+            System.out.println("Toast message: " + toastMessage.getText());
             return toastMessage.getText();
         } catch (Exception e) {
             System.out.println("No toast message");
@@ -29,5 +45,21 @@ public class BasePage {
 
     public void selectSearchMenu() {
         searchMenuBtn.click();
+    }
+
+    public void selectHistoryMenu() {
+        historyMenuBtn.click();
+    }
+
+    public void selectAccountMenu() {
+        accountMenuBtn.click();
+    }
+
+    public void userManagementMenuClick() {
+        layoutManagerUser.click();
+    }
+
+    public void busManagementMenuClick() {
+        layoutManagerBus.click();
     }
 }

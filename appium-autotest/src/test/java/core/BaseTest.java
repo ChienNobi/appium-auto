@@ -4,6 +4,7 @@ import config.EmulatorConfig;
 import helpers.ExcelReader;
 import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 import page.LoginPage;
 
@@ -24,8 +25,13 @@ public class BaseTest {
         loginPage = new LoginPage();
     }
 
+    @AfterMethod
+    public void refreshApp() {
+        EmulatorConfig.resetApp();
+    }
+
     @AfterClass()
-    public void endRun() {
+    public void endRun() throws IOException {
         EmulatorConfig.quit();
     }
 

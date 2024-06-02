@@ -1,6 +1,8 @@
 package helpers;
 
 
+import org.openqa.selenium.WebElement;
+
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,4 +47,9 @@ public class CommonHelper {
             return null;
         }
     }
+
+    public static void sendKeys(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
+    };
 }

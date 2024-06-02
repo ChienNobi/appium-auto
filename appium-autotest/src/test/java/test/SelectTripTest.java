@@ -16,6 +16,7 @@ public class SelectTripTest extends BaseTest {
     public void setUp() throws IOException {
         page = new SelectTripPage();
     }
+
     @Test
     public void TC01() throws InterruptedException {
         loginPage.login("ngocnt", "123456");

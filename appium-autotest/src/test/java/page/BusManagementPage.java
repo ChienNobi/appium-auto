@@ -8,9 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class BusManagementPage extends BasePage {
-    @FindBy(id = "layoutManagerChuyenXe")
-    private WebElement layoutManagerUser;
-
     @FindBy(id = "com.example.myapplication:id/search_button")
     private WebElement searchButton;
 
@@ -59,16 +56,13 @@ public class BusManagementPage extends BasePage {
     @FindBy(id = "itemChuyenXe")
     private List<WebElement> listItems;
 
-    @FindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/button1\"]")
-    private WebElement dongYButton;
-
     public BusManagementPage() {
         super();
         PageFactory.initElements(driver, this);
     }
 
     public void search(String word) {
-        layoutManagerUser.click();
+        busManagementMenuClick();
         System.out.println("Search bus with keyword: " + word);
         searchButton.click();
         searchInput.sendKeys(word);
@@ -103,7 +97,7 @@ public class BusManagementPage extends BasePage {
             WebElement itemToRemove = listItems.get(4);
             WebElement deleteButton = itemToRemove.findElement(By.id("btnDeleteChuyenXe"));
             deleteButton.click();
-            dongYButton.click();
+            popUpConfirmBtn.click();
         } else {
             System.out.println("Danh sách không đủ phần tử để xóa.");
         }
