@@ -26,6 +26,9 @@ public class BasePage {
     @FindBy(id = "layoutManagerUser")
     private WebElement layoutManagerUser;
 
+    @FindBy(id = "layoutManagerLoaiXe")
+    private WebElement layoutManagerCarType;
+
     @FindBy(xpath = "//android.widget.Button[@resource-id='android:id/button1']")
     public WebElement popUpConfirmBtn;
 
@@ -61,5 +64,13 @@ public class BasePage {
 
     public void busManagementMenuClick() {
         layoutManagerBus.click();
+    }
+
+    public void carTypeMenuClick() {
+        layoutManagerCarType.click();
+    }
+
+    public void goToHistoryPage() {
+        historyMenuBtn.click();
     }
 }
