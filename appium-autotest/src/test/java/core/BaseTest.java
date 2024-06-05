@@ -3,9 +3,7 @@ package core;
 import config.EmulatorConfig;
 import helpers.ExcelReader;
 import io.appium.java_client.AppiumDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import page.LoginPage;
 
 import java.io.IOException;
@@ -18,7 +16,7 @@ public class BaseTest {
     public ExcelReader excelReader;
     public List<Map<String, String>> testData;
 
-    @BeforeSuite
+    @BeforeClass
     public void preRun() throws IOException, InterruptedException {
         driver = EmulatorConfig.getAndroidDriver();
         EmulatorConfig.setWaitImplicit(10);

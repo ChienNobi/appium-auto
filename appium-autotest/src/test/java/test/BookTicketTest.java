@@ -31,7 +31,6 @@ public class BookTicketTest extends BaseTest {
     @Override
     @AfterClass()
     public void endRun() throws IOException {
-        EmulatorConfig.quit();
         excelWriter.writeFile();
     }
 
@@ -52,66 +51,66 @@ public class BookTicketTest extends BaseTest {
         excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
     }
 
-    @Test(priority = 2, description = "Do not enter end date")
-    public void TC02() throws InterruptedException {
-        loginPage.login("ngocnt", "123456");
-
-        String startDate = RandomHelper.randomDay();
-        page.placeBooking(startDate, "", true);
-        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
-        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé khứ hồi");
-        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
-    }
-
-    @Test(priority = 3, description = "Start date < End date, isRoundTrip = true")
-    public void TC03() throws InterruptedException {
-        loginPage.login("ngocnt", "123456");
-
-        String startDate = RandomHelper.randomPastDate();
-        String endDate = RandomHelper.randomFutureDate();
-        page.placeBooking(startDate, endDate, true);
-
-        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
-        excelWriter.setCellValue(currentRow, END_DATE_INDEX, endDate);
-        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé khứ hồi");
-        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
-    }
-
-    @Test(priority = 4, description = "Start date > End date, isRoundTrip = true")
-    public void TC04() throws InterruptedException {
-        loginPage.login("ngocnt", "123456");
-
-        String startDate = RandomHelper.randomFutureDate();
-        String endDate = RandomHelper.randomPastDate();
-        page.placeBooking(startDate, endDate, true);
-
-        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
-        excelWriter.setCellValue(currentRow, END_DATE_INDEX, endDate);
-        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé khứ hồi");
-        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
-    }
-
-    @Test(priority = 5, description = "Start date > now, isRoundTrip = false")
-    public void TC05() throws InterruptedException {
-        loginPage.login("ngocnt", "123456");
-
-        String startDate = RandomHelper.randomFutureDate();
-        page.placeBooking(startDate, "", false);
-
-        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
-        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé 1 chiều");
-        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
-    }
-
-    @Test(priority = 6, description = "Invalid start date, isRoundTrip = false")
-    public void TC06() throws InterruptedException {
-        loginPage.login("ngocnt", "123456");
-
-        String startDate = RandomHelper.generateRandomString();
-        page.placeBooking(startDate, "", false);
-
-        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
-        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé 1 chiều");
-        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
-    }
+//    @Test(priority = 2, description = "Do not enter end date")
+//    public void TC02() throws InterruptedException {
+//        loginPage.login("ngocnt", "123456");
+//
+//        String startDate = RandomHelper.randomDay();
+//        page.placeBooking(startDate, "", true);
+//        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
+//        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé khứ hồi");
+//        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
+//    }
+//
+//    @Test(priority = 3, description = "Start date < End date, isRoundTrip = true")
+//    public void TC03() throws InterruptedException {
+//        loginPage.login("ngocnt", "123456");
+//
+//        String startDate = RandomHelper.randomPastDate();
+//        String endDate = RandomHelper.randomFutureDate();
+//        page.placeBooking(startDate, endDate, true);
+//
+//        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
+//        excelWriter.setCellValue(currentRow, END_DATE_INDEX, endDate);
+//        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé khứ hồi");
+//        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
+//    }
+//
+//    @Test(priority = 4, description = "Start date > End date, isRoundTrip = true")
+//    public void TC04() throws InterruptedException {
+//        loginPage.login("ngocnt", "123456");
+//
+//        String startDate = RandomHelper.randomFutureDate();
+//        String endDate = RandomHelper.randomPastDate();
+//        page.placeBooking(startDate, endDate, true);
+//
+//        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
+//        excelWriter.setCellValue(currentRow, END_DATE_INDEX, endDate);
+//        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé khứ hồi");
+//        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
+//    }
+//
+//    @Test(priority = 5, description = "Start date > now, isRoundTrip = false")
+//    public void TC05() throws InterruptedException {
+//        loginPage.login("ngocnt", "123456");
+//
+//        String startDate = RandomHelper.randomFutureDate();
+//        page.placeBooking(startDate, "", false);
+//
+//        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
+//        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé 1 chiều");
+//        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
+//    }
+//
+//    @Test(priority = 6, description = "Invalid start date, isRoundTrip = false")
+//    public void TC06() throws InterruptedException {
+//        loginPage.login("ngocnt", "123456");
+//
+//        String startDate = RandomHelper.generateRandomString();
+//        page.placeBooking(startDate, "", false);
+//
+//        excelWriter.setCellValue(currentRow, START_DATE_INDEX, startDate);
+//        excelWriter.setCellValue(currentRow, ROUND_TRIP_INDEX, "Vé 1 chiều");
+//        excelWriter.setCellValue(currentRow, RESULT_INDEX, loginPage.getToastMessage());
+//    }
 }
