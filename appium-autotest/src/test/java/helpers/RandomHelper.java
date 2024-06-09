@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-
 public class RandomHelper {
+
     public static String generateRandomNumber(int min, int max) {
         Random random = new Random();
         int randomNumber = random.nextInt(max - min + 1) + min;

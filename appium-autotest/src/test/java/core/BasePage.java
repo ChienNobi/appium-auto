@@ -5,6 +5,8 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Random;
+
 public class BasePage {
     public AppiumDriver driver;
 
@@ -35,8 +37,11 @@ public class BasePage {
     @FindBy(id = "btnLogout")
     private WebElement logoutBtn;
 
+    public Random random;
+
     public BasePage() {
         this.driver = EmulatorConfig.getAndroidDriver();
+        random = new Random();
     }
 
     public String getToastMessage() {
