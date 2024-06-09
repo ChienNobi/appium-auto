@@ -15,9 +15,6 @@ public class UpdateUserInfoPage extends BasePage {
     @FindBy(id = "btnUpdateAccount")
     private WebElement updateBtn;
 
-    @FindBy(id = "btnLogout")
-    private WebElement logoutBtn;
-
     public UpdateUserInfoPage() {
         super();
         PageFactory.initElements(driver, this);

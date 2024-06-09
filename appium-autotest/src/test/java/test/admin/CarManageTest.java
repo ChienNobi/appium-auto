@@ -33,7 +33,6 @@ public class CarManageTest extends BaseTest {
 
     @Test(priority = 0)
     public void TC01_SearchCarType() throws InterruptedException {
-
         Random random = new Random();
         int index = random.nextInt(words.length);
         String wordToSearch = words[index];

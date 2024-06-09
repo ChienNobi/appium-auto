@@ -35,56 +35,65 @@ public class ResetPasswordTest extends BaseTest {
         page.openResetPasswordPage();
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, description = "Empty all data")
     public void TC01() {
         page.resetPassword("", "", "");
-        System.out.println(page.getToastMessage());
+        String errorMessage = page.getToastMessage();
+        Assert.assertEquals(errorMessage, "Vui lòng nhập dữ liệu đầy đủ");
     }
 
-    @Test(priority = 2)
-    public void TC02() {
+    @Test(priority = 2, description = "Empty Email")
+    public void TC02_EmptyEmail() {
         String password = RandomHelper.generateRandomPassword(6);
         page.resetPassword("", password, password);
-        driver.resetInputState();
+        String errorMessage = page.getToastMessage();
+        Assert.assertEquals(errorMessage, "Vui lòng nhập dữ liệu đầy đủ");
     }
 
-    @Test(priority = 3)
-    public void TC03() {
+    @Test(priority = 3, description = "Empty Password")
+    public void TC03_EmptyPassword() {
         String password = RandomHelper.generateRandomPassword(6);
+        page.resetPassword(RandomHelper.generateRandomEmail(), "", password);
+        String errorMessage = page.getToastMessage();
+        Assert.assertEquals(errorMessage, "Vui lòng nhập dữ liệu đầy đủ");
     }
 
-    @Test(priority = 4)
-    public void TC04() {
+    @Test(priority = 4, description = "Empty confirm password")
+    public void TC04_EmptyConfirmPassword() {
         String password = RandomHelper.generateRandomPassword(6);
         page.resetPassword("", password, "");
+        String errorMessage = page.getToastMessage();
+        Assert.assertEquals(errorMessage, "Vui lòng nhập dữ liệu đầy đủ");
     }
 
-    @Test(priority = 5, description = "Test with valid email + password")
-    public void TC05() {
+    @Test(priority = 5, description = "Test with random email + password")
+    public void TC05_RandomEmail() {
         String password = RandomHelper.generateRandomPassword(6);
         page.resetPassword(RandomHelper.generateRandomEmail(), password, password);
+        String errorMessage = page.getToastMessage();
+        Assert.assertEquals(errorMessage, "Không tìm thấy thông tin người dùng");
     }
 
     @Test(priority = 6, description = "New pass and confirm pass are different")
-    public void TC06() {
+    public void TC06_WrongConfirmPass() {
         page.resetPassword("khachhang.1205@gmail.com", "khachhang", RandomHelper.generateRandomPassword(6));
+        String errorMessage = page.getToastMessage();
+        Assert.assertEquals(errorMessage, "Kiểm tra lại mật khẩu");
     }
 
     @Test(priority = 7)
-    public void TC07() throws InterruptedException {
+    public void TC07_SuccessChangePassword() {
         page.resetPassword("khachhang.1205@gmail.com", "khachhang", "khachhang");
-        loginPage.login("khachhang", "khachhang");
+        page.confirmPopUp();
+        String message = page.getToastMessage();
+        Assert.assertEquals(message, "Đặt lại mật khẩu thành công");
     }
 
     @Test(priority = 8)
     public void TC08() {
-        page.openResetPasswordPage();
-        page.resetPassword("khachhang.1205@gmail.com", RandomHelper.generateRandomPassword(6), "khachhang");
-    }
-
-    @Test(priority = 9)
-    public void TC09() throws InterruptedException {
-        page.resetPassword("khachhang.1205@gmail.com", RandomHelper.generateRandomPassword(6), RandomHelper.generateRandomPassword(6));
-        loginPage.login("khachhang", RandomHelper.generateRandomPassword(6));
+        page.resetPassword("khachhang.1205@gmail.com", "khachhang", RandomHelper.generateRandomPassword(8));
+        page.confirmPopUp();
+        String message = page.getToastMessage();
+        Assert.assertEquals(message, "Kiểm tra lại mật khẩu");
     }
 }

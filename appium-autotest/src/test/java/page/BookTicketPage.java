@@ -41,9 +41,7 @@ public class BookTicketPage extends BasePage {
         if(!startDate.isEmpty()) {
             startDateField.sendKeys(startDate);
         }
-
         boolean currentRoundTripStatus = roundTripBtn.getAttribute("checked").equals("true");
-
         if(isRoundTrip) {
             if(!currentRoundTripStatus) {
                 roundTripBtn.click();

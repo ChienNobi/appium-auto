@@ -32,6 +32,9 @@ public class BasePage {
     @FindBy(xpath = "//android.widget.Button[@resource-id='android:id/button1']")
     public WebElement popUpConfirmBtn;
 
+    @FindBy(id = "btnLogout")
+    private WebElement logoutBtn;
+
     public BasePage() {
         this.driver = EmulatorConfig.getAndroidDriver();
     }
@@ -72,5 +75,14 @@ public class BasePage {
 
     public void goToHistoryPage() {
         historyMenuBtn.click();
+    }
+
+    public void confirmPopUp() {
+        popUpConfirmBtn.click();
+    }
+
+    public void logout() {
+        selectAccountMenu();
+        logoutBtn.click();
     }
 }

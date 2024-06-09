@@ -20,7 +20,6 @@ public class UserManagementTest extends BaseTest {
 
     @Test(priority = 1)
     public void TC01_SearchUser() throws InterruptedException {
-//        TODO: move this to before method
         loginPage.login("thaigiavuong", "admin");
         loginPage.userManagementMenuClick();
 
@@ -63,9 +62,7 @@ public class UserManagementTest extends BaseTest {
     public void TC04_DeleteUser() throws InterruptedException {
         loginPage.login("thaigiavuong", "admin");
         loginPage.userManagementMenuClick();
-
         page.deleteUser();
-
         loginPage.getToastMessage();
     }
 }

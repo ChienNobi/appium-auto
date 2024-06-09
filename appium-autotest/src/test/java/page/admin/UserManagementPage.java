@@ -69,6 +69,8 @@ public class UserManagementPage extends BasePage {
     }
 
     public void searchUser(String query) {
+        System.out.println("Search user with keyword: " + query);
+        searchButton.click();
         CommonHelper.sendKeys(searchInput, query);
     }
 
