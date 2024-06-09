@@ -18,11 +18,6 @@ public class BookTicketTest extends BaseTest {
     BookTicketPage page;
     ExcelWriter excelWriter;
 
-    int currentRow = 0;
-    int START_DATE_INDEX = 0;
-    int END_DATE_INDEX = 1;
-    int ROUND_TRIP_INDEX = 2;
-    int RESULT_INDEX = 3;
     @BeforeClass
     public void setUp() throws IOException {
         page = new BookTicketPage();
@@ -82,7 +77,7 @@ public class BookTicketTest extends BaseTest {
         String startDate = RandomHelper.randomFutureDate();
         page.placeBooking(startDate, "", false);
         String message = page.getToastMessage();
-        Assert.assertEquals(message, "Vui lòng kiểm tra lại thông tin vé");
+        Assert.assertEquals(message, "Đặt vé thành công, vui lòng chuyển sang tab lịch sử để xem");
     }
 
     @Test(priority = 6, description = "Invalid start date, isRoundTrip = false")
@@ -93,5 +88,22 @@ public class BookTicketTest extends BaseTest {
         page.placeBooking(startDate, "", false);
         String message = page.getToastMessage();
         Assert.assertEquals(message, "Vui lòng kiểm tra lại thông tin vé");
+    }
+
+    @Test(priority = 7, description = "Empty start date + end date, isRoundTrip = true")
+    public void TC07() throws InterruptedException {
+        loginPage.login("ngocnt", "123456");
+
+        page.placeBooking("", "", true);
+        String message = page.getToastMessage();
+        Assert.assertEquals(message, "Vui lòng nhập thông tin vé");
+    }
+
+    @Test(priority = 8, description = "Valid start date + end date, isRoundTrip = true")
+    public void TC08() throws InterruptedException {
+        loginPage.login("ngocnt", "123456");
+        page.placeBooking(RandomHelper.randomFutureDate(), RandomHelper.randomFutureDate(), true);
+        String message = page.getToastMessage();
+        Assert.assertEquals(message, "Đặt vé thành công, vui lòng chuyển sang tab lịch sử để xem");
     }
 }
