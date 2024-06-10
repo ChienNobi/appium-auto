@@ -34,7 +34,7 @@ public class ResetPasswordTest extends BaseTest {
     public void TC01() {
         page.resetPassword("", "", "");
         String errorMessage = page.getToastMessage();
-        Assert.assertEquals(errorMessage, "Vui lòng nhập dữ liệu đầy đủ");
+        Assert.assertEquals(errorMessage, "Vui lòng nhập đầy đủ dữ liệu");
     }
 
     @Test(priority = 2, description = "Empty Email")
@@ -42,7 +42,7 @@ public class ResetPasswordTest extends BaseTest {
         String password = RandomHelper.generateRandomPassword(6);
         page.resetPassword("", password, password);
         String errorMessage = page.getToastMessage();
-        Assert.assertEquals(errorMessage, "Vui lòng nhập dữ liệu đầy đủ");
+        Assert.assertEquals(errorMessage, "Vui lòng nhập đầy đủ dữ liệu");
     }
 
     @Test(priority = 3, description = "Empty Password")
@@ -50,7 +50,7 @@ public class ResetPasswordTest extends BaseTest {
         String password = RandomHelper.generateRandomPassword(6);
         page.resetPassword(RandomHelper.generateRandomEmail(), "", password);
         String errorMessage = page.getToastMessage();
-        Assert.assertEquals(errorMessage, "Vui lòng nhập dữ liệu đầy đủ");
+        Assert.assertEquals(errorMessage, "Vui lòng nhập đầy đủ dữ liệu");
     }
 
     @Test(priority = 4, description = "Empty confirm password")
@@ -58,7 +58,7 @@ public class ResetPasswordTest extends BaseTest {
         String password = RandomHelper.generateRandomPassword(6);
         page.resetPassword("", password, "");
         String errorMessage = page.getToastMessage();
-        Assert.assertEquals(errorMessage, "Vui lòng nhập dữ liệu đầy đủ");
+        Assert.assertEquals(errorMessage, "Vui lòng nhập đầy đủ dữ liệu");
     }
 
     @Test(priority = 5, description = "Test with random email + password")
@@ -87,7 +87,6 @@ public class ResetPasswordTest extends BaseTest {
     @Test(priority = 8)
     public void TC08() {
         page.resetPassword("khachhang.1205@gmail.com", "khachhang", RandomHelper.generateRandomPassword(8));
-        page.confirmPopUp();
         String message = page.getToastMessage();
         Assert.assertEquals(message, "Kiểm tra lại mật khẩu");
     }
