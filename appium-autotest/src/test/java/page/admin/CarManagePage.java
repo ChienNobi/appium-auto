@@ -55,4 +55,11 @@ public class CarManagePage extends BasePage {
         soLuongGheField.sendKeys(numberOfChair);
         addButton.click();
     }
+
+    public void editCar(String carType, String numberOfChair) {
+        editButton.click();
+        tenLoaiXeField.sendKeys(carType);
+        soLuongGheField.sendKeys(numberOfChair);
+        updateButton.click();
+    }
 }

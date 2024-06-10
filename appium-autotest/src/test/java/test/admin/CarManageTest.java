@@ -36,7 +36,6 @@ public class CarManageTest extends BaseTest {
         Random random = new Random();
         int index = random.nextInt(words.length);
         String wordToSearch = words[index];
-
         page.searchCarType(wordToSearch);
     }
 
@@ -46,16 +45,21 @@ public class CarManageTest extends BaseTest {
         int index = random.nextInt(words.length);
         page.addNewCar(words[index], RandomHelper.generateRandomNumber(10, 20));
         String result = page.getToastMessage();
-        System.out.println(result);
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, description = "Delete Car Type")
     public void TC03_DeleteCarType() throws InterruptedException {
         Random random = new Random();
         int index = random.nextInt(words.length);
         page.addNewCar(words[index], RandomHelper.generateRandomNumber(10, 20));
         String result = page.getToastMessage();
-        System.out.println(result);
     }
 
+    @Test(priority = 3, description = "Edit Car Type")
+    public void TC04_EditCarType() {
+        Random random = new Random();
+        int index = random.nextInt(words.length);
+        page.editCar(words[index], RandomHelper.generateRandomNumber(10, 20));
+        String result = page.getToastMessage();
+    }
 }

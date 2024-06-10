@@ -1,12 +1,8 @@
 package test;
 
-import com.google.common.collect.ImmutableMap;
 import config.EmulatorConfig;
 import core.BaseTest;
 import helpers.RandomHelper;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -15,7 +11,6 @@ import org.testng.annotations.Test;
 import page.ResetPasswordPage;
 
 import java.net.MalformedURLException;
-import java.sql.DriverManager;
 
 public class ResetPasswordTest extends BaseTest {
     private ResetPasswordPage page;
@@ -95,5 +90,14 @@ public class ResetPasswordTest extends BaseTest {
         page.confirmPopUp();
         String message = page.getToastMessage();
         Assert.assertEquals(message, "Kiểm tra lại mật khẩu");
+    }
+
+    @Test(priority = 9)
+    public void TC09() {
+        String password = RandomHelper.generateRandomPassword(6);
+        page.resetPassword("khachhang.1205@gmail.com", password, password);
+        page.confirmPopUp();
+        String message = page.getToastMessage();
+        Assert.assertEquals(message, "Đặt lại mật khẩu thành công");
     }
 }
