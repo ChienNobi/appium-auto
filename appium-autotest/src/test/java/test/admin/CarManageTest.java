@@ -3,6 +3,7 @@ package test.admin;
 import config.EmulatorConfig;
 import core.BaseTest;
 import helpers.RandomHelper;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -60,6 +61,6 @@ public class CarManageTest extends BaseTest {
         Random random = new Random();
         int index = random.nextInt(words.length);
         page.editCar(words[index], RandomHelper.generateRandomNumber(10, 20));
-        String result = page.getToastMessage();
+        Assert.assertEquals(page.getToastMessage(), "Chỉnh sửa thành công");
     }
 }

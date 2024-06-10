@@ -31,6 +31,9 @@ public class BasePage {
     @FindBy(id = "layoutManagerLoaiXe")
     private WebElement layoutManagerCarType;
 
+    @FindBy(id = "layoutManagerVeDat")
+    private WebElement layoutManagerBookedTicket;
+
     @FindBy(xpath = "//android.widget.Button[@resource-id='android:id/button1']")
     public WebElement popUpConfirmBtn;
 
@@ -76,6 +79,10 @@ public class BasePage {
 
     public void carTypeMenuClick() {
         layoutManagerCarType.click();
+    }
+
+    public void goToAdminMangageTicket() {
+        layoutManagerBookedTicket.click();
     }
 
     public void goToHistoryPage() {

@@ -38,6 +38,13 @@ public class LoginPage extends BasePage {
         signInButton.click();
     }
 
+    public void loginWithClick(String username, String password) throws InterruptedException {
+        System.out.println("Login with info: " + username + "/" + password);
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        signInButton.click();
+    }
+
     public String isLoginSuccessfully() {
         try {
             String message = errorMessage.getText();
